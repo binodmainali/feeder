@@ -1,9 +1,11 @@
 class FeedsController < ApplicationController
+  include FeedsHelper
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
 
   # GET /feeds
   def index
     @feeds = Feed.all
+    @feed = Feed.new
   end
 
   # GET /feeds/1
@@ -21,13 +23,18 @@ class FeedsController < ApplicationController
 
   # POST /feeds
   def create
-    @feed = Feed.new(feed_params)
+      @feed = Feed.find_or_initialize_by(feed_params)
+      processed_feed = @feed.process_url(@feed.link)
+      @feed = update_feed_object(@feed, processed_feed)
 
-    if @feed.save
-      redirect_to @feed, notice: 'Feed was successfully created.'
-    else
-      render action: 'new'
-    end
+      if processed_feed != 0 && @feed.save! 
+        FeedItem.process_and_save_feed(processed_feed.entries, @feed.id)
+        @feed.user_ids = [current_user.id] if user_signed_in?
+        redirect_to @feed, notice: 'Feed was successfully created.'
+      else
+        flash[:notice] = "Error parsing feed"
+        render action: 'new', notice: "Invalid Rss Feed url"
+      end
   end
 
   # PATCH/PUT /feeds/1

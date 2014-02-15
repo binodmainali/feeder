@@ -1,39 +1,16 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @feed.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @feed.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @feed.image %>
-</p>
-
-<p>
-  <strong>Last build date:</strong>
-  <%= @feed.last_build_date %>
-</p>
-
-<p>
-  <strong>Published at:</strong>
-  <%= @feed.published_at %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @feed.link %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @feed.category %>
-</p>
+<% @feed.feed_items.each do |feed_item|%>
+  <p>
+    <strong>
+    <a href = "<%= feed_item.url%>" >
+      <%= feed_item.name %>
+      </a>
+    </strong>
+  </p>  
+  <p>
+    <%=raw feed_item.summary %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %>

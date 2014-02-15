@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140215123847) do
     t.string   "url"
     t.datetime "published_at"
     t.string   "guid"
+    t.integer  "feed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,6 +35,14 @@ ActiveRecord::Schema.define(version: 20140215123847) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "feeds_users", force: true do |t|
+    t.integer "user_id"
+    t.integer "feed_id"
+  end
+
+  add_index "feeds_users", ["feed_id"], name: "index_feeds_users_on_feed_id", using: :btree
+  add_index "feeds_users", ["user_id"], name: "index_feeds_users_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -52,13 +61,5 @@ ActiveRecord::Schema.define(version: 20140215123847) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "users_feeds", force: true do |t|
-    t.integer "user_id"
-    t.integer "feed_id"
-  end
-
-  add_index "users_feeds", ["feed_id"], name: "index_users_feeds_on_feed_id", using: :btree
-  add_index "users_feeds", ["user_id"], name: "index_users_feeds_on_user_id", using: :btree
 
 end

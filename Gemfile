@@ -10,6 +10,9 @@ gem 'mysql2'
 gem 'protected_attributes'
 gem 'feedzirra'
 gem 'devise'
+gem 'pry'
+gem 'better_errors'
+gem 'binding_of_caller'
 # Gems Used for development and test environment
 group :developement,:test do
 	gem 'rspec-rails'
@@ -27,9 +30,6 @@ group :developement,:test do
 	gem 'database_cleaner'
 	gem 'brakeman'
 	gem 'bullet'
-	gem 'pry'
-	gem 'better_errors'
-	gem 'binding_of_caller'
 	gem 'capybara'
 	gem 'therubyracer'
 end
