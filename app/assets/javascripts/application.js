@@ -13,7 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require jcarousel
 // Include all twitter's javascripts
 //= require twitter/bootstrap
-//= require home.js

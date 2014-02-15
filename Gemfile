@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails',"4.0.1"
+gem 'rails', '4'	
 
 
 # Bundle edge Rails instead:
@@ -9,9 +9,9 @@ gem 'rails',"4.0.1"
 gem 'mysql2'
 gem 'protected_attributes'
 gem 'feedzirra'
+gem 'devise'
 # Gems Used for development and test environment
 group :developement,:test do
-	gem 'feedzirra'
 	gem 'rspec-rails'
 	gem "factory_girl", "2.6.0"
 	gem 'factory_girl_rails'
@@ -31,7 +31,6 @@ group :developement,:test do
 	gem 'better_errors'
 	gem 'binding_of_caller'
 	gem 'capybara'
-	gem 'devise'
 	gem 'therubyracer'
 end
 

@@ -3,13 +3,7 @@ Blabber::Application.routes.draw do
 
   resources :feed_items
 
-  devise_for :users
-
-  get '/token' => 'home#token', as: :token
-
-  resources :home
-
-  root 'home#index'
+  root 'feeds#index'
 
 # root :to => "devise/sessions#new"
   # The priority is based upon order of creation:
