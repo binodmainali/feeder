@@ -8,8 +8,10 @@ gem 'rails',"4.0.1"
 
 gem 'mysql2'
 gem 'protected_attributes'
+gem 'feedzirra'
 # Gems Used for development and test environment
 group :developement,:test do
+	gem 'feedzirra'
 	gem 'rspec-rails'
 	gem "factory_girl", "2.6.0"
 	gem 'factory_girl_rails'

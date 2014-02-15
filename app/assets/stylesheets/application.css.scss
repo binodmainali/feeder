@@ -18,9 +18,12 @@ html, body
     height: 100%;
 }
 body {
-  padding-right: 50px;
-  padding-left: 50px;
+  padding-right: 10;
+  padding-left: 10px;
   @include gradient-vertical( #C2B8B8, #fff );
+}
+.container {
+	height: 100%
 }
 
 

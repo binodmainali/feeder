@@ -72,6 +72,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    curb (0.8.5)
     database_cleaner (1.2.0)
     debug_inspector (0.0.2)
     devise (3.0.0.rc)
@@ -90,6 +91,10 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     fastercsv (1.5.5)
+    feedzirra (0.7.1)
+      curb (~> 0.8.1)
+      loofah (~> 1.2.1)
+      sax-machine (~> 0.2.1)
     ffi (1.9.3)
     formatador (0.2.4)
     guard (2.2.4)
@@ -122,6 +127,8 @@ GEM
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    loofah (1.2.1)
+      nokogiri (>= 1.4.4)
     lumberjack (1.0.4)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -188,6 +195,8 @@ GEM
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
+    sax-machine (0.2.1)
+      nokogiri (~> 1.6.0)
     sexp_processor (4.4.0)
     shoulda (2.11.3)
     shoulda-matchers (1.0.0)
@@ -245,6 +254,7 @@ DEPENDENCIES
   factory_girl (= 2.6.0)
   factory_girl_rails
   faker
+  feedzirra
   guard-bundler
   guard-rspec
   guard-spork
