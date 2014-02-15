@@ -15,6 +15,7 @@ class FeedsController < ApplicationController
   # GET /feeds/new
   def new
     @feed = Feed.new
+    @feeds = Feed.latest
   end
 
   # GET /feeds/1/edit
@@ -26,8 +27,8 @@ class FeedsController < ApplicationController
       @feed = Feed.find_or_initialize_by(feed_params)
       processed_feed = @feed.process_url(@feed.link)
       @feed = update_feed_object(@feed, processed_feed)
-
-      if processed_feed != 0 && @feed.save! 
+      binding.pry
+      if processed_feed.class.ancestors.include?(Feedzirra::FeedUtilities) && @feed.save! 
         FeedItem.process_and_save_feed(processed_feed.entries, @feed.id)
         @feed.user_ids = [current_user.id] if user_signed_in?
         redirect_to @feed, notice: 'Feed was successfully created.'

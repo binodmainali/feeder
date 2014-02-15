@@ -4,7 +4,7 @@ Blabber::Application.routes.draw do
 
   resources :feed_items
 
-  root 'feeds#index'
+  root 'feeds#new'
 
 # root :to => "devise/sessions#new"
   # The priority is based upon order of creation:

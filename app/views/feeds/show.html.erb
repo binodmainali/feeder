@@ -1,15 +1,18 @@
 <p id="notice"><%= notice %></p>
-<% @feed.feed_items.each do |feed_item|%>
+<h1><% @feed.description%></h1>
+<% @feed.feed_items.latest.each do |feed_item|%>
+<div class = "one-feed">
   <p>
     <strong>
-    <a href = "<%= feed_item.url%>" >
-      <%= feed_item.name %>
+      <a href = "<%= feed_item.url%>" >
+        <%= feed_item.name %>
       </a>
     </strong>
   </p>  
   <p>
     <%=raw feed_item.summary %>
   </p>
+  </div>
 <% end %>
 
 <%= link_to 'Edit', edit_feed_path(@feed) %> |

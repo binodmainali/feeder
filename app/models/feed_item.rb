@@ -3,6 +3,12 @@ class FeedItem < ActiveRecord::Base
 	attr_accessible :name, :summary, :url, :published_at, :guid, :feed_id
 	belongs_to :feeds
 
+	class << self
+		def latest
+			order(updated_at: :asc).limit(10)
+		end
+	end
+
 	def self.process_and_save_feed(entries,feed_id)
     	entries.each do |entry|
       	unless exists? :guid => entry.id

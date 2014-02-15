@@ -1,1 +1,3 @@
 <%= render 'form' %>
+<% @feeds ||= Feed.latest %>
+<%= render :partial => 'latest_feeds', :locals => { :feeds => @feeds } %>

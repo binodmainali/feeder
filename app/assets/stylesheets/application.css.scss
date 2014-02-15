@@ -15,15 +15,17 @@
 @import "twitter/bootstrap";
 html, body
 {
-    height: 100%;
+    
 }
 body {
-  padding-right: 10;
-  padding-left: 10px;
-  @include gradient-vertical( #C2B8B8, #fff );
+  @include gradient-vertical( #fff, #ddd );
 }
-.container {
-	height: 100%
+#main-content {
+	height: 100%;
+	margin-top: 50px;
+	border: 1px solid #ccc;
+    box-shadow: 0 0 30px black;
+    padding:0 15px 0 15px;
 }
 
 

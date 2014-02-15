@@ -1,0 +1,10 @@
+<p class="latest-feeds">
+<h1>Latest Feeds</h1>
+	<% feeds.each do |feed| %>
+		<div class= "one-feed">
+			<h3><strong><%= link_to "#{feed.title}", feed_path(feed) %><br/></strong></h3>
+			<%= raw feed.description%><br/>
+		</div>
+	<% end %>
+</p>
+
