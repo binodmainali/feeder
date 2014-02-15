@@ -1,4 +1,8 @@
 Blabber::Application.routes.draw do
+  resources :feeds
+
+  resources :feed_items
+
   devise_for :users
 
   get '/token' => 'home#token', as: :token
