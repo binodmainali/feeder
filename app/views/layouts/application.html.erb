@@ -8,10 +8,23 @@
 </head>
 <body>
 <div class="container">
- 
-	
-<%= yield %>
+	<div class = "row">
+	 	<div id = "header" class="col-md-1">
+	 		Header
+	 		<%= link_to "sign out", "/users/sign_out", :method => "delete" %>
+	 	</div>
+	 </div>
 
+	<div class = "row">
+		<div id = "main-content" class="col-md-8">
+			<%= yield %>
+		</div>
+	</div>
+	<div class="row">
+		<div id="footer" class="col-md-1">
+			Footer	
+		</div>
+	</div>
 </div>
 
 
