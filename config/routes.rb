@@ -1,4 +1,5 @@
 Blabber::Application.routes.draw do
+  devise_for :users
   resources :feeds
 
   resources :feed_items
