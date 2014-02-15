@@ -1,0 +1,33 @@
+<div class="row" id="login-form">
+	<div class="container">
+		<div class = "col-md-6 col-md-offset-3">
+			<h2>Sign up</h2>
+
+			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+			<%= devise_error_messages! %>
+
+			<div class="give-margin form-group">
+				<%= f.label :email %><br />
+				<%= f.email_field :email, :autofocus => true, :class => "form-control normal-text-field" %>
+			</div>
+
+			<div class="give-margin">
+				<%= f.label :password %><br />
+				<%= f.password_field :password, :class=>"form-control normal-text-field" %>
+			</div>
+
+			<div class="give-margin">
+				<%= f.label :password_confirmation %><br />
+				<%= f.password_field :password_confirmation, :class=>"form-control normal-text-field" %>
+			</div>
+
+			<div>
+			<%= f.submit "Sign up",  :class =>"btn bnt-lg btn-primary", :style => "height:50px; width:155px;" %>
+			</div>
+			<% end %>
+			<div class="give-margin">
+			<%= render "devise/shared/links" %>
+			</div>
+		</div>
+	</div>
+</div>
