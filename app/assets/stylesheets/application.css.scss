@@ -28,6 +28,16 @@ body {
     padding:0 15px 0 15px;
 }
 
+.feed-wrapper{
+		margin: 5%;
+		border: 1px solid #ccc;
+		padding: 1%;
+		border-radius: 11px;
+		margin-top: 12px;
+		box-shadow: 3px 3px 16px #CB8;
+		padding: 10px;
+}
+
 #side-bar{
 	.side-bar-feed-title{
 		font-size: 2rem;
@@ -40,15 +50,6 @@ body {
 	.feed-item-list{
 		list-style-type: disc;
 		margin-left: 5%;
-	}
-	.feed-wrapper{
-		margin: 5%;
-		border: 1px solid #ccc;
-		padding: 1%;
-		border-radius: 11px;
-		margin-top: 12px;
-		box-shadow: 3px 3px 16px #CB8;
-		padding: 10px;
 	}
 	.log-in-message{
 		color: green;

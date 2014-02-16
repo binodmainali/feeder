@@ -1,0 +1,8 @@
+<h1>
+	Categories
+</h1>
+<% get_categories.each do |feed| %>
+	<span class="feed-wrapper">
+		<%=  link_to "#{feed.category}" ,"/categories?category=#{feed.category}"  %>
+	</span>
+<% end %>

@@ -8,4 +8,8 @@ module ApplicationHelper
 		end
 		current_feeds
 	end
+
+	def get_categories
+		Feed.where("category is not null")
+	end
 end

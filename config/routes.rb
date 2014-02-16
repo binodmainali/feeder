@@ -5,6 +5,7 @@ Blabber::Application.routes.draw do
 
   resources :feed_items
   get 'check_input', to: 'feeds#check_input'
+  get 'categories', to: 'feeds#categories'
   get 'search', to: 'feeds#search'
   root 'feeds#new'
 

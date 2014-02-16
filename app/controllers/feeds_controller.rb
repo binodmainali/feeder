@@ -8,6 +8,11 @@ class FeedsController < ApplicationController
     @feed = Feed.new
   end
 
+  def categories
+    q = "%" + params["category"] + "%"
+    @results = Feed.search(q)
+  end
+  
   # GET /feeds/1
   def show
   end

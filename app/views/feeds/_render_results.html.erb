@@ -1,0 +1,13 @@
+<% if results.count <=0 %>
+	<p> Nothing Found </p>
+<%end%>
+<% results.each do |result| %>
+	<div class="one-feed">
+		<p>
+			<%= link_to "#{result.title}", "/feeds/"+"#{result.id}", :class => "search-result" %>
+		</p>
+		<p>
+			<%= result.description %>
+		</p>
+	</div>
+<% end%>
