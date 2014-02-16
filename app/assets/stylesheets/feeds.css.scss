@@ -17,4 +17,26 @@
 	margin: 3% 0;
 	line-height: 2rem;
 	text-align: justify;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 1%;
+	a{
+		margin-right: 12px;
+	}
+	span.add-category{
+			cursor: pointer;
+		}
+}
+.show-category{
+	display: block;
+}
+
+
+.hide-category{
+	display: none;
+}
+.save-message{
+	font-size: 1.5rem;
+	color: green;
+	float: right;
 }

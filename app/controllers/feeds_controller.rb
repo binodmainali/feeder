@@ -4,7 +4,7 @@ class FeedsController < ApplicationController
 
   # GET /feeds
   def index
-    @feeds = Feed.all
+    @feeds = Feed.latest
     @feed = Feed.new
   end
 
@@ -27,7 +27,6 @@ class FeedsController < ApplicationController
       @feed = Feed.find_or_initialize_by(feed_params)
       processed_feed = @feed.process_url(@feed.link)
       @feed = update_feed_object(@feed, processed_feed)
-      binding.pry
       if processed_feed.class.ancestors.include?(Feedzirra::FeedUtilities) && @feed.save! 
         FeedItem.process_and_save_feed(processed_feed.entries, @feed.id)
         @feed.user_ids = [current_user.id] if user_signed_in?
@@ -40,8 +39,13 @@ class FeedsController < ApplicationController
 
   # PATCH/PUT /feeds/1
   def update
-    if @feed.update(feed_params)
-      redirect_to @feed, notice: 'Feed was successfully updated.'
+    if @feed.update_attributes(feed_params)
+      if request.xhr?
+        render :json => {"result" => "Category Updated Successfully"}
+      else
+        redirect_to @feed, notice: 'Feed was successfully updated.'
+      end
+      
     else
       render action: 'edit'
     end

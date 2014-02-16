@@ -2,7 +2,17 @@
 <h1>Latest Feeds</h1>
 	<% feeds.each do |feed| %>
 		<div class= "one-feed">
-			<h3><strong><%= link_to "#{feed.title}", feed_path(feed) %><br/></strong></h3>
+			<h3>
+			<strong>
+				<%= link_to "#{feed.title}", feed_path(feed) %>
+				<span class="add-category" title="Categorize this feed">+</span>
+			</strong>
+			<span class = "input-category hide-category">
+				<input size=10 class = "add-new-category" type='text' placeholder='Add category' name='category' />
+				<sup title="Save the category" class='save-category' style="cursor:pointer" data-id=<%="#{feed.id}"%> >save</sup>
+				<sub title="cancel adding category" class='cancel-category' style="cursor:pointer">X</sub>
+			</span>
+			</h3>
 			<%= raw feed.description%><br/>
 		</div>
 	<% end %>

@@ -9,18 +9,32 @@
 <body>
 <div class="container">
 	<div class = "row">
-	 	<div id = "header" class="col-md-1">
-	 		Header
-	 		<% if user_signed_in?%>
-	 			<%= link_to "sign out", "/users/sign_out", :method => "delete" %>
-	 		<% else %>
-	 			<%= link_to "sign in", "/users/sign_in" %>
-	 		<% end %>
+	 	<div id = "header" class="col-md-12">
+	 		<nav class="navbar navbar-default" role="navigation">
+  				<div class="container-fluid">
+  					<ul>
+	 					<% if user_signed_in?%>
+	 						<li><%= link_to "sign out", "/users/sign_out", :method => "delete" %></li>
+	 					<% else %>
+	 						<li class="btn btn-primary"><%= link_to "sign in", "/users/sign_in" %></li>
+
+	 					<% end %>
+	 				</ul>
+	 			</div>
+	 		</nav>			
 	 	</div>
 	 </div>
 
 	<div class = "row">
-		<div id = "main-content" class="col-md-12">
+		<% if user_signed_in? %>
+		<div id = "side-bar" class="col-md-4">
+			You are logged in as <%= current_user.email%>
+			<%= render "layouts/sidebar" %>
+		</div>
+		<div id = "main-content" class="col-md-8">
+		<% else %>
+			<div id = "main-content" class="col-md-12">
+		<% end%>
 		<% if flash[:notice] %>
     		<div class="notice"><%= flash[:notice] %></div>
   		<% end %>
