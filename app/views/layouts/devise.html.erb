@@ -14,19 +14,8 @@
   				<div class="container-fluid">
   					<h1>Feedster </h1>
   					<ul>
-	 					<% if user_signed_in?%>
-	 						<li class="sign-out"><%= link_to "sign out", "/users/sign_out", :method => "delete" %></li>
-	 					<% else %>
-	 						<li class="btn btn-primary"><%= link_to "sign in", "/users/sign_in" %></li>
-
-	 					<% end %>
+	 					
 	 				</ul>
-	 				<div class="categories">
-
-	 				</div>
-	 				<div class="rss-searchbar">
-	 					<%= render :partial=> "form"%>
-	 				</div>
 	 			</div>
 	 		</nav>			
 	 	</div>

@@ -31,6 +31,9 @@ class FeedsController < ApplicationController
           q = "%" + feed_params["link"] + "%"      
           @results = Feed.search(q)
         end
+      rescue Exception => e
+        q = "%" + feed_params["link"] + "%"      
+        @results = Feed.search(q)
   end
 
   # POST /feeds

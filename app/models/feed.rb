@@ -9,7 +9,7 @@ class Feed < ActiveRecord::Base
 			order(updated_at: :desc).limit(5)
 		end
 		def search(q)
-			where("title like ? or description like ?",q, q)
+			where("title like ? or description like ? or category like ? or id in (?)",q, q, q,FeedItem.search(q).map(&:feed_id).uniq)
 		end
 	end
 

@@ -7,8 +7,7 @@
 <div class = "one-feed">
   <p>
     <strong>
-      <a href = "<%= feed_item.url%>" >
-        <%= feed_item.name %>
+      <%= link_to "#{feed_item.name}", "#{feed_item.url}", :target => "_blank"%>
       </a>
     </strong>
   </p> 
