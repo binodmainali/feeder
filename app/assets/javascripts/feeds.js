@@ -29,4 +29,12 @@ $(document).ready(function(){
 		e.stopPropagation();;
 		return false;
 	});
+
+	$(".go-button").on("click",function(e){
+		 var value = $(this).siblings("input").val();
+		 if(value === "")
+		 {
+		 	e.preventDefault();
+		 }
+	})
 });

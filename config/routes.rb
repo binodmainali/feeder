@@ -2,8 +2,9 @@ Blabber::Application.routes.draw do
   devise_for :users
   resources :feeds
 
-  resources :feed_items
 
+  resources :feed_items
+  get 'check_input', to: 'feeds#check_input'
   root 'feeds#new'
 
 # root :to => "devise/sessions#new"

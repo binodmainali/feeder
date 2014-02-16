@@ -22,6 +22,23 @@ class FeedsController < ApplicationController
   def edit
   end
 
+  def check_input
+    require 'uri'
+      binding.pry
+       u = URI.parse(feed_params["link"] )
+       if !u.host.nil?
+          create
+        else
+          search
+        end
+    rescue URI::InvalidURIError
+      search
+  end
+
+  def search
+    puts params
+    render :nothing => true
+  end
   # POST /feeds
   def create
       @feed = Feed.find_or_initialize_by(feed_params)

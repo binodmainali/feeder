@@ -1,4 +1,4 @@
-<%= form_for(@feed) do |f| %>
+<%= form_for(@feed, :url => url_for(:controller => "feeds", :action => "check_input"), :method => "get") do |f| %>
   <% if @feed.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
@@ -14,8 +14,8 @@
     <div class="field">
       <%= f.label :link, "Feed URL" %>
       <span>
-        <%= f.text_field :link,:autofocus => true, :class => "form-control normal-text-field"  %>
-        <%= f.submit "Add RSS feed", class: "btn btn-primary" %>
+        <%= f.text_field :link,:autofocus => true, :class => "form-control normal-text-field", :placeholder => "Search or add a Feed URL"  %>
+        <%= f.submit "Go", class: "btn btn-primary go-button" %>
       </span>
     </div>
   </h2>
