@@ -12,14 +12,15 @@
   <% end %>
   <h2>
     <div class="field">
-      <span><%= f.label :link, "Feed URL" %></span>
-      <%= f.text_field :link,:autofocus => true, :class => "form-control normal-text-field"  %>
+      <%= f.label :link, "Feed URL" %>
+      <span>
+        <%= f.text_field :link,:autofocus => true, :class => "form-control normal-text-field"  %>
+        <%= f.submit "Add RSS feed", class: "btn btn-primary" %>
+      </span>
+    </div>
   </h2>
   <!-- <div class="field">
     <%= f.label :category %><br>
     <%= f.text_field :category %>
   </div> -->
-  <div class="actions">
-    <%= f.submit "Add RSS feed", class: "btn btn-primary" %>
-  </div>
 <% end %>

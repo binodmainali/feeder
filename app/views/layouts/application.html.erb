@@ -12,14 +12,18 @@
 	 	<div id = "header" class="col-md-12">
 	 		<nav class="navbar navbar-default" role="navigation">
   				<div class="container-fluid">
+  					<h1>Feedster </h1>
   					<ul>
 	 					<% if user_signed_in?%>
-	 						<li><%= link_to "sign out", "/users/sign_out", :method => "delete" %></li>
+	 						<li class="sign-out"><%= link_to "sign out", "/users/sign_out", :method => "delete" %></li>
 	 					<% else %>
 	 						<li class="btn btn-primary"><%= link_to "sign in", "/users/sign_in" %></li>
 
 	 					<% end %>
 	 				</ul>
+	 				<div class="rss-searchbar">
+	 					<%= render :partial=> "form"%>
+	 				</div>
 	 			</div>
 	 		</nav>			
 	 	</div>
@@ -35,9 +39,6 @@
 		<% else %>
 			<div id = "main-content" class="col-md-12">
 		<% end%>
-		<% if flash[:notice] %>
-    		<div class="notice"><%= flash[:notice] %></div>
-  		<% end %>
 			<%= yield %>
 		</div>
 	</div>
