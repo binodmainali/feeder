@@ -13,6 +13,8 @@ gem 'devise'
 gem 'pry'
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'daemons'
+gem 'whenever'
 # Gems Used for development and test environment
 group :developement,:test do
 	gem 'rspec-rails'

@@ -22,10 +22,15 @@ class Feed < ActiveRecord::Base
 	end
 
 	def self.process_background
-		all.each do |feed|
-			rss = Feedzirra::Feed.fetch_and_parse(feed.link)
-			FeedItem.process_and_save_feed(rss.entries,feed.id)
-		end
 		
+			all.each_with_index do |feed,i|
+				begin
+					rss = Feedzirra::Feed.fetch_and_parse(feed.link)
+					FeedItem.process_and_save_feed(rss.entries,feed.id)
+					Rails.logger.info("------------------------Processing #{i}-------------------------" )
+				rescue Exception => e
+					Rails.logger.info("------------------------Error occured-------------------------" + e.message + "#{rss.inspect}"	)
+				end
+			end
 	end
 end
