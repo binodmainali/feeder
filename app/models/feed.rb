@@ -20,4 +20,12 @@ class Feed < ActiveRecord::Base
 	def process_url(url)
 		feed = Feedzirra::Feed.fetch_and_parse(url,:on_success => lambda {|url, feed| puts feed.title },:on_failure => lambda {|curl, error| puts error})
 	end
+
+	def self.process_background
+		all.each do |feed|
+			rss = Feedzirra::Feed.fetch_and_parse(feed.link)
+			FeedItem.process_and_save_feed(rss.entries,feed.id)
+		end
+		
+	end
 end

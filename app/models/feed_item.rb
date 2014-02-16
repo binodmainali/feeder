@@ -5,11 +5,11 @@ class FeedItem < ActiveRecord::Base
 
 	class << self
 		def latest
-			order(updated_at: :asc).limit(10)
+			order(updated_at: :desc).limit(10)
 		end
 
 		def get_two(feed_id)
-			order(updated_at: :asc).limit(2).where(feed_id: feed_id)
+			order(updated_at: :desc).limit(2).where(feed_id: feed_id)
 		end
 
 		def search(q)
@@ -19,16 +19,14 @@ class FeedItem < ActiveRecord::Base
 
 	def self.process_and_save_feed(entries,feed_id)
     	entries.each do |entry|
-      	unless exists? :guid => entry.id
-	        create!(
+	        FeedItem.where(
 	          :name         => entry.title,
 	          :summary      => entry.summary,
 	          :url          => entry.url,
 	          :published_at => entry.published,
 	          :guid         => entry.id,
 	          :feed_id 		=> feed_id
-	        )
-    	  end
+	        ).first_or_create
   		end
     end    
 end

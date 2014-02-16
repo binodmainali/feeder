@@ -17,8 +17,18 @@ html, body
 {
 	min-height: 100%;    
 }
+.container{
+	width: 95%;
+}
 body {
   @include gradient-vertical( #fff, #ddd );
+}
+a.header-title {
+	text-decoration: none !important;
+	color:white !important;
+	&:hover{
+		background:white;
+	}
 }
 #main-content, #side-bar{
 	height: 100%;
@@ -67,13 +77,14 @@ body {
 	list-style-type: none;
 	float:right;
 	padding: 10px;
+	margin: -10px 10px;
 	a{
 		color:white !important;
 	}
 }
 
 .rss-searchbar{
-	margin: -6% 20%;
+	margin: -4% 30%;
 }
 #header{
 	.navbar.navbar-default{
