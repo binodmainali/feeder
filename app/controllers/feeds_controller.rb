@@ -24,7 +24,6 @@ class FeedsController < ApplicationController
 
   def check_input
     require 'uri'
-      binding.pry
        u = URI.parse(feed_params["link"] )
        if !u.host.nil?
           create
