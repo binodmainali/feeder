@@ -28,16 +28,11 @@ class FeedsController < ApplicationController
        if !u.host.nil?
           create
         else
-          search
+          q = "%" + feed_params["link"] + "%"      
+          @results = Feed.search(q)
         end
-    rescue URI::InvalidURIError
-      search
   end
 
-  def search
-    puts params
-    render :nothing => true
-  end
   # POST /feeds
   def create
       @feed = Feed.find_or_initialize_by(feed_params)

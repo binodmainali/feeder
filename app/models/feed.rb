@@ -8,6 +8,9 @@ class Feed < ActiveRecord::Base
 		def latest
 			order(updated_at: :desc).limit(5)
 		end
+		def search(q)
+			where("title like ? or description like ?",q, q)
+		end
 	end
 
 	def get_two_feed_items
