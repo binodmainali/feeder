@@ -28,7 +28,7 @@
 	<div class = "row">
 		<% if user_signed_in? %>
 		<div id = "side-bar" class="col-md-4">
-			You are logged in as <%= current_user.email%>
+			<p class="log-in-message"> You are logged in as <%= current_user.email%></p>
 			<%= render "layouts/sidebar" %>
 		</div>
 		<div id = "main-content" class="col-md-8">

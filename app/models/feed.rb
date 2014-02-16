@@ -10,6 +10,10 @@ class Feed < ActiveRecord::Base
 		end
 	end
 
+	def get_two_feed_items
+		FeedItem.get_two(self.id)
+	end
+
 	def process_url(url)
 		feed = Feedzirra::Feed.fetch_and_parse(url,:on_success => lambda {|url, feed| puts feed.title },:on_failure => lambda {|curl, error| puts error})
 	end

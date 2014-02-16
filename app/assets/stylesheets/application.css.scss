@@ -29,7 +29,33 @@ body {
 }
 
 #side-bar{
-	padding: 10px;
+	.side-bar-feed-title{
+		font-size: 2rem;
+	}
+	.feed-title{
+		list-style-type: none;
+		margin: 1% 0 2% 0;
+		padding: 0;
+	}
+	.feed-item-list{
+		list-style-type: disc;
+		margin-left: 5%;
+	}
+	.feed-wrapper{
+		margin: 5%;
+		border: 1px solid #ccc;
+		padding: 1%;
+		border-radius: 11px;
+		margin-top: 12px;
+		box-shadow: 3px 3px 16px #CB8;
+		padding: 10px;
+	}
+	.log-in-message{
+		color: green;
+		box-shadow: 3px 3px 16px #CB8;
+		padding: 10px;
+		margin-top: 12px;
+	}
 }
 
 

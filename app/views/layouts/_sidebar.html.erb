@@ -1,0 +1,11 @@
+<h1>Your Recent Feeds</h1>
+<p class="users-recent-feeds">
+<% get_recent_feeds_for_user.each do |feed|%>
+<div class = "feed-wrapper">
+	<ul class="feed-title"><%= link_to "#{feed.first.title}", feed_path(feed.first), :class => "side-bar-feed-title" %> </ul>
+		<% feed.second.each do |feed_item|%>
+			<li class="feed-item-list"><%= link_to "#{feed_item.name}", "#{feed_item.url}", :class => "side-bar-feed-item", :target => "_blank" %> </li>
+		<%end%>
+</div>
+<%end%>
+</p>

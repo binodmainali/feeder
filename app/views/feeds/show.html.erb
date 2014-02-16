@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-<h1><% @feed.description%></h1>
+<h1><%= @feed.title%></h1>
+<hr>
+<h3>Description</h3>
+<p><%= @feed.description%></p>
 <% @feed.feed_items.latest.each do |feed_item|%>
 <div class = "one-feed">
   <p>
