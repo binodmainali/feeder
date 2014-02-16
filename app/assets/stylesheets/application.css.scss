@@ -15,7 +15,7 @@
 @import "twitter/bootstrap";
 html, body
 {
-    
+	min-height: 100%;    
 }
 body {
   @include gradient-vertical( #fff, #ddd );
@@ -26,6 +26,11 @@ body {
 	border: 1px solid #ccc;
     box-shadow: 0 0 30px #ccc;
     padding:0 15px 0 15px;
+    margin-bottom: 55px;
+    ::-webkit-input-placeholder {
+   	color: light-gray;
+   	font-size: 20px;
+	}
 }
 
 .feed-wrapper{
@@ -58,17 +63,30 @@ body {
 		margin-top: 12px;
 	}
 }
-.sign-out{
+.sign-out, .sign-in{
 	list-style-type: none;
 	float:right;
 	padding: 10px;
+	a{
+		color:white !important;
+	}
 }
 
 .rss-searchbar{
-	margin: -7% 30%;
+	margin: -6% 20%;
 }
-.navbar.navbar-default{
-	min-height: 152px;
+#header{
+	.navbar.navbar-default{
+		min-height: 175px;
+	}
+}
+
+#footer{
+	.navbar.navbar-default{
+		min-height: 50px;
+		background: rgb(95, 95, 95);
+		color:white;
+	}	
 }
 
 .categories{

@@ -13,16 +13,16 @@
 	 		<nav class="navbar navbar-default" role="navigation">
   				<div class="container-fluid">
   					<h1><a href="/">Feedster </a></h1>
-  					<ul>
-	 					<% if user_signed_in?%>
-	 						<li class="sign-out"><%= link_to "sign out", "/users/sign_out", :method => "delete" %></li>
-	 					<% else %>
-	 						<li class="btn btn-primary"><%= link_to "sign in", "/users/sign_in" %></li>
-
-	 					<% end %>
-	 				</ul>
 	 				<div class="rss-searchbar">
 	 					<%= render :partial=> "form"%>
+	 				</div>
+	 				<div>
+	 					<% if user_signed_in?%>
+	 						<li class="sign-out btn btn-primary"><%= link_to "sign out", "/users/sign_out", :method => "delete" %></li>
+	 					<% else %>
+	 						<li class="sign-in btn btn-primary"><%= link_to "sign in", "/users/sign_in" %></li>
+
+	 					<% end %>
 	 				</div>
 	 			</div>
 	 		</nav>			
@@ -46,9 +46,14 @@
 		</div>
 	</div>
 	<div class="row">
-		<div id="footer" class="col-md-1">
-			Footer	
-		</div>
+		<div id="footer" class="container">
+    	<nav class="navbar navbar-default navbar-fixed-bottom">
+        	<div class="navbar-inner navbar-content-center">
+            	<p class="">Feedster © 2014 · English (US) <span style="float:right">Author: Binod Mainali</span></p>
+        	</div>
+    	</nav>
+    	</div>
+</div>
 	</div>
 </div>
 
