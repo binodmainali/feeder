@@ -8,6 +8,11 @@
 	width: 100%;
 	padding: 1rem;
 }
+
+::-webkit-input-placeholder {
+   color: light-gray;
+   font-size: 20px;
+}
 .latest-feeds{
 	padding: 2%;
 	margin: 5px 0px;
