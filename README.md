@@ -1,1 +1,1 @@
-This is BLABBER... a simple chat system
+This is Feedster A simple RSS reader
