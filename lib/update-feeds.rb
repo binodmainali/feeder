@@ -1,3 +1,4 @@
+#this will update the feeds
 loop do
   Feed.process_background
   puts "updated"

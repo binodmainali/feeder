@@ -8,7 +8,7 @@ Blabber::Application.routes.draw do
   get 'categories', to: 'feeds#categories'
   get 'search', to: 'feeds#search'
   root 'feeds#new'
-
+  #just adding a comment
 # root :to => "devise/sessions#new"
   # The priority is based upon order of creation:
   # first created -> highest priority.
