@@ -8,6 +8,7 @@
 # set :output, "/path/to/my/cron_log.log"
 #
 #Every one minute get and process the feed on background
+#more commit
 every 1.minutes do
   runner "Feed.process_background"
 end
